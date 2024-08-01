@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>homepage</title>
+{% endblock title %}
+
+{% block content %}
+  
+
+<!-- page wrapper -->
+<div class="page-wrapper">
+  
+  <!-- carousel -->
+  <div class="post-slider">
+    <h3 class="slider-title one">Trends</h3>
+    <i class="fas fa-chevron-left prev"></i>
+    <i class="fas fa-chevron-right next"></i>
+    
+    <div class="post-wrapper">
+      
+       <div class="post">
+        <img src="{{ url_for('static' , filename='images/uploads/sacco1.png') }}" alt="" class="slider-image">
+        <div class="post-info">
+          <h4><a href="#">Savings</a></h4>
+          <p>“Do not save what is left after spending, but spend what is left after saving.” - Warren Buffett.</p>
+        </div>
+      </div>
+      
+       <div class="post">
+        <img src="{{ url_for('static' , filename='images/uploads/sacco2.png') }}" alt="" class="slider-image">
+        <div class="post-info">
+          <br>
+          <h4><a href="#">SASRA</a></h4>
+          <p>Securing Sacco Funds</p>
+
+        </div>
+      </div>
+      
+      <div class="post">
+        <img src="{{ url_for('static' , filename='images/uploads/sacco3.png') }}" alt="" class="slider-image">
+        <div class="post-info">
+<br>
+ <h4><a href="#">Loan</a></h4>
+<p>Flexibility in how you can use your funding.</p>
+        </div>
+      </div>
+      
+           <div class="post">
+        <img src="{{ url_for('static' , filename='images/uploads/sacco4.png') }}" alt="" class="slider-image">
+        <div class="post-info">
+          <h4><a href="#">Savings</a></h4>
+          <p>“The habit of saving is itself an education; it fosters every virtue, teaches self-denial, cultivates the sense of order, trains to forethought, and so broadens the mind.” - T.T. Munger</p>
+        </div>
+      </div>
+      
+          <div class="post">
+        <img src="{{ url_for('static' , filename='images/uploads/sacco5.png') }}" alt="" class="slider-image">
+        <div class="post-info">
+          <br>
+          <h4><a href="#">CIC Group</a></h4>
+          <p>We Keep Our Word</p>
+        </div>
+      </div>
+  </div>
+  
+</div>
+
+<center>
+<br><br>
+<h2>LOANS OFFERED</h2>
+</center>
+
+<div class="content" id="services">
+  <div class="content-section">
+    <ul>
+   <li> <a href="#">Development loan</a> </li>
+<p>This product enables members to undertake development projects with long-term benefits e.g. buying Land, constructing Residential & Commercial buildings, Business ventures, large-scale farming, & other investments.</p>
+
+
+
+    
+  </ul>  
+  </div>
+
+  <div class="content-section">
+    <h2> </h2>
+    <ul>
+<li><a href="#">Emergency loan</a> </li>
+<p>This product helps members take care of urgent or unforeseen life expenses e.g. hospital bills, court fines or other urgent family expenses</p>
+
+  
+</ul>
+
+</div>
+  
+
+  <div class="content-section">
+    <h2> </h2>
+    <ul>
+      <li><a href="#">Sheeka pesa mobile loan</a> </li>
+      <p>The Sheeka Pesa Mobile Loan is an instant mobile phone credit facility that is available to all Sacco members who have activated their mobile banking platform.
+        This feature can be accessed by activating your online members portal platform using your Member Number & ID Number.</p>
+</ul>
+
+  </div>
+  
+  <div class="content-section">
+    <h2> </h2>
+    <ul>
+      <li><a href="#">School fees loan</a></li>
+      <p>This loan caters for Pre-Primary, Primary, Secondary & Tertiary education. Payment is made to the respective school upon provision of the relevant invoicing documents.
+        Members are able to meet education expenses with ease.</p>
+    </ul>
+  
+  </div>
+
+  
+</div>
+<hr>
+
+
+<!-- page wrapper -->
+
+<!--
+<div class="page-wrapper">
+  
+  <- carousel ->
+  <div class="post-slider">
+    <h3 class="slider-title">our partners</h3>
+    <i class="fas fa-chevron-left prev"></i>
+    <i class="fas fa-chevron-right next"></i>
+    
+    <div class="post-wrapper">
+      
+      <div class="post">
+        <img src="{{ url_for('static' , filename='images/uploads/real_estate2.PNG') }}"  alt="" class="slider-image">
+        <div class="post-info">
+          <br>
+          <h4><a href="single.html">#details</a></h4> <br>
+          <i class="fas fa-user"> anonymous</i>
+          &nbsp;
+          <i class="fas fa-calender">may 31,2023</i>
+        </div>
+      </div>
+      
+      <div class="post">
+        <img src="{{ url_for('static' , filename='images/uploads/architechture3.PNG') }}"  alt="" class="slider-image">
+        <div class="post-info">
+          <br>
+          <h4><a href="single.html">#details</a></h4> <br>
+          <i class="fas fa-user"> anonymous</i>
+          &nbsp;
+          <i class="fas fa-calender">may 31,2023</i>
+        </div>
+      </div>
+      
+      <div class="post">
+        <img src="{{ url_for('static' , filename='images/uploads/cars3.PNG') }}"  alt="" class="slider-image">
+        <div class="post-info">
+          <br>
+        <h4><a href="single.html">#details</a></h4> <br>
+        <i class="fas fa-user"> anonymous</i>
+        &nbsp;
+        <i class="fas fa-calender">may 31,2023</i>
+        </div>
+      </div>
+      
+      <div class="post">
+        <img src="{{ url_for('static' , filename='images/uploads/cars4.PNG') }}"  alt="" class="slider-image">
+        <div class="post-info">
+          <h4><a href="single.html">#details</a></h4> <br>
+          <i class="fas fa-user"> anonymous</i>
+          &nbsp;
+          <i class="fas fa-calender">may 31,2023</i>
+        </div>
+      </div>
+      
+     <div class="post">
+        <img src="{{ url_for('static' , filename='images/uploads/architechture4.PNG') }}"  alt="" class="slider-image">
+        <div class="post-info">
+          <h4><a href="single.html">#details</a></h4> <br>
+          <i class="fas fa-user"> anonymous</i>
+          &nbsp;
+          <i class="fas fa-calender">may 31,2023</i>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+-->
+
+
+
+{% endblock content %}
