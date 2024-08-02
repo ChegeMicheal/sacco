@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>Receipt cashbook</title>
+<title>Journal</title>
 {% endblock title %}
 
 
 {% block content %}
-<form action="/receipt_cashbook" method="post">
+<form action="/journal" method="post">
 
 <!-- page wrapper -->
 <div class="cashbook">
@@ -33,9 +33,8 @@
         <input class="input" type="text" name="receipt_no" placeholder="Enter receipt no" required> <br>
         </div>
 
-        {% for i in range(credits[1]) %}
         <div class="receipt-section">
-          <H3>CREDIT {{i+1}}</H3>
+          <H3>CREDIT</H3>
           <label class="label" for="account_no">Account No: </label>
           <input class="input" type="text" name="account_no" placeholder="Enter account no" required> <br>
   
@@ -49,7 +48,7 @@
           <input class="input" type="text" name="reason" placeholder="Enter payment reason" required> <br>
   
           </div>
-        {% endfor %}
+        
     </div>
     <input class="btn-big" type="submit" value="ADD CONTRIBUTION">
     <br><br>

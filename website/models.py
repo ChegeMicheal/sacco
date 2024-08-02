@@ -22,9 +22,9 @@ class Footer_message(db.Model):
     visibility = db.Column(db.String(150))
     date_submitted = db.Column(db.DateTime, default=datetime.utcnow)
 
-class Receipt_cashbook(db.Model):
+class Credit(db.Model):
     id= db.Column(db.Integer, primary_key = True)
-    debit=db.Column(db.Integer)
+    credits=db.Column(db.Integer)
     date_submitted = db.Column(db.DateTime, default=datetime.utcnow)
 
     

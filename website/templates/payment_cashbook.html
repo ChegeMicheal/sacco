@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>Receipt cashbook</title>
+<title>payment cashbook</title>
 {% endblock title %}
 
 
 {% block content %}
-<form action="/receipt_cashbook" method="post">
+<form action="/payment_cashbook" method="post">
 
 <!-- page wrapper -->
 <div class="cashbook">
   <br>
-  <h3 class="slider-title one">RECEIPT CASHBOOK</h3>
+  <h3 class="slider-title one">PAYMENT CASHBOOK</h3>
     <!-- carousel -->
     <div class="receipt">
       
         <div class="receipt-section">
-          <h3>DEBIT</h3>
+          <h3>CREDIT</h3>
         <label class="label" for="member_No">Member No: </label>
         <input class="input" type="text" name="member_no" placeholder="Enter Member number" required> <br>
 
@@ -33,9 +33,8 @@
         <input class="input" type="text" name="receipt_no" placeholder="Enter receipt no" required> <br>
         </div>
 
-        {% for i in range(credits[1]) %}
         <div class="receipt-section">
-          <H3>CREDIT {{i+1}}</H3>
+          <H3>DEBIT</H3>
           <label class="label" for="account_no">Account No: </label>
           <input class="input" type="text" name="account_no" placeholder="Enter account no" required> <br>
   
@@ -49,7 +48,7 @@
           <input class="input" type="text" name="reason" placeholder="Enter payment reason" required> <br>
   
           </div>
-        {% endfor %}
+        
     </div>
     <input class="btn-big" type="submit" value="ADD CONTRIBUTION">
     <br><br>

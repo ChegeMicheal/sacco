@@ -1,5 +1,5 @@
 from flask import Blueprint, Flask, render_template, request, flash, redirect, url_for
-from .models import Footer_message,User
+from .models import Footer_message,User,Credit
 import os
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -65,9 +65,48 @@ def sign_up():
     return render_template("signUp.html", user = current_user)
 
 @auth.route('/receipt_cashbook', methods=['GET', 'POST'])
-def about_us():
-    return render_template('receipt_cashbook.html', user=current_user)
+def receipt_cashbook():
+    def getData():
+        mydb = mysql.connector.connect(
+             host="d1kb8x1fu8rhcnej.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+             user="mgewt9r4y3xqrzx9",
+             passwd="tic4d2e6fe79vw98",
+             database="c60lhk7e30osyo5v"
+            )
+        
+        mycursor = mydb.cursor()
 
+        mycursor.execute("SELECT * FROM credit ORDER BY id DESC LIMIT 1;") 
+        DBData = mycursor.fetchall() 
+        print(DBData)
+        mycursor.close()
+        return DBData
+         
+    DBData = getData()
+    return render_template('receipt_cashbook.html',credits=DBData, user=current_user)
+
+@auth.route('/credits', methods=['GET', 'POST'])
+def credits():
+    if request.method == 'POST':
+        credits = request.form.get('no_of_credits',type=int)
+        new_credit = Credit(credits=credits)
+        db.session.add(new_credit)
+        db.session.commit()
+        return redirect(url_for('auth.receipt_cashbook'))
+    
+    return render_template('credits.html', user=current_user)
+
+@auth.route('/payment_cashbook', methods=['GET', 'POST'])
+def payment_cashbook():
+    return render_template('payment_cashbook.html', user=current_user)
+
+@auth.route('/petty_cash', methods=['GET', 'POST'])
+def petty_cash():
+    return render_template('petty_cash.html', user=current_user)
+
+@auth.route('/journal', methods=['GET', 'POST'])
+def journal():
+    return render_template('journal.html', user=current_user)
 
 
 @auth.route('/updateProfile', methods=['GET', 'POST'])
@@ -85,26 +124,9 @@ def home():
     user = User.query.all()
     return render_template('home.html', user=current_user)
 
-@auth.route('/cars', methods=['GET', 'POST'])
-def cars():
-    return render_template('cars.html', user=current_user)
-
-@auth.route('/realestate', methods=['GET', 'POST'])
-def realestate():
-    return render_template('realestate.html', user=current_user)
-
-@auth.route('/architechture', methods=['GET', 'POST'])
-def architechture():
-    return render_template('architechture.html', user=current_user)
-
 @auth.route('/homepage', methods=['GET', 'POST'])
 def homepage():
     return render_template('homepage.html', user=current_user)
-
-@auth.route('/details', methods=['GET', 'POST'])
-def details():
-    return render_template('details.html', user=current_user, name='images/animal01.png')
-
 
 app= Flask(__name__)
 app.config["IMAGE_UPLOADS"]= r'C:\Users\USER\Desktop\sacco\website\static\images\uploads'

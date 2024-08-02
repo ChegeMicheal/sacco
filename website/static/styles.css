@@ -25,6 +25,15 @@ a{
   padding: .7rem 1.3rem;
   line-height: 1.0rem;
   color: white;
+  background-color: navy;
+  border-radius: 2rem;
+  border: .2px solid navy;
+}
+
+.btn-big:hover{
+  cursor: pointer;
+  background-color: white;
+  color: navy;
 }
 
 .btn-db{
@@ -281,6 +290,49 @@ header .menu-toggle{
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   overflow: hidden;
+}
+
+/*receipt cash book*/
+.cashbook{
+  padding-top: 55px;
+  text-align: center;
+}
+
+.cashbook .slider-title {
+  text-align: center;
+}
+
+.cashbook .receipt{
+  justify-content: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  
+}
+
+
+.cashbook .receipt .receipt-section{
+  padding: 5px;
+  font-size: 1.8rem;
+  margin: 10px;
+  border: .2px solid black;
+}
+
+.cashbook .receipt .receipt-section .label{
+  float: left;
+  color: black;
+  margin: 10px;
+  width: 100px;
+}
+
+.cashbook .receipt .receipt-section .input{
+  right: 20px;
+  color: black;
+  width: 250px;
+  height: auto;
+  margin: 5px;
 }
 
 /* displaying various pictures */
@@ -668,6 +720,9 @@ header .menu-toggle{
 }
 .login{
   width: auto;
+}
+.cashbook .receipt{
+  display: block;
 }
 
 }
