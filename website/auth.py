@@ -1,5 +1,5 @@
-from flask import Blueprint, Flask, render_template, request, flash, redirect, url_for
-from .models import Footer_message,User,Credit
+from flask import Blueprint, Flask, render_template, request, flash, redirect, url_for,get_flashed_messages
+from .models import User,Account,Credit
 import os
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -11,6 +11,7 @@ from flask_mysqldb import MySQL
 
 
 auth = Blueprint('auth', __name__)
+
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -64,6 +65,40 @@ def sign_up():
         
     return render_template("signUp.html", user = current_user)
 
+
+@auth.route('/add_account', methods=['GET', 'POST'])
+def add_account():
+    if request.method == 'POST':
+        account_no = request.form.get('account_no')
+        account_name = request.form.get('account_name')
+        #add account to database
+        new_account = Account(account_number=account_no, account_name=account_name)
+        db.session.add(new_account)
+        db.session.commit()
+        flash('account created successfully!', category='success')
+        login_user(user=current_user, remember = True)
+        return redirect(url_for('auth.homepage'))
+        
+    return render_template("account.html", user = current_user)
+
+@auth.route('/credits', methods=['GET', 'POST'])  
+def credits():
+    credits=''
+    if request.method == 'POST':
+        credit=request.form.get('no_of_credits',type=int)
+        for i in range(credit):
+            credits+='1'
+        #add credits to database
+        print(credits)
+        new_credit = Credit(credits=credits)
+        db.session.add(new_credit)
+        db.session.commit()
+        flash("REDIRECTING...",'success')
+        return redirect(url_for('auth.receipt_cashbook'))
+    
+    return render_template('credits.html')
+
+
 @auth.route('/receipt_cashbook', methods=['GET', 'POST'])
 def receipt_cashbook():
     def getData():
@@ -76,25 +111,16 @@ def receipt_cashbook():
         
         mycursor = mydb.cursor()
 
-        mycursor.execute("SELECT * FROM credit ORDER BY id DESC LIMIT 1;") 
+        mycursor.execute("select credits from credit ORDER BY id DESC LIMIT 1;") 
         DBData = mycursor.fetchall() 
         print(DBData)
         mycursor.close()
         return DBData
          
     DBData = getData()
-    return render_template('receipt_cashbook.html',credits=DBData, user=current_user)
-
-@auth.route('/credits', methods=['GET', 'POST'])
-def credits():
-    if request.method == 'POST':
-        credits = request.form.get('no_of_credits',type=int)
-        new_credit = Credit(credits=credits)
-        db.session.add(new_credit)
-        db.session.commit()
-        return redirect(url_for('auth.receipt_cashbook'))
     
-    return render_template('credits.html', user=current_user)
+    return render_template('receipt_cashbook.html',credit=DBData, user=current_user)
+
 
 @auth.route('/payment_cashbook', methods=['GET', 'POST'])
 def payment_cashbook():

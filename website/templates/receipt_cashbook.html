@@ -6,6 +6,8 @@
 
 
 {% block content %}
+
+
 <form action="/receipt_cashbook" method="post">
 
 <!-- page wrapper -->
@@ -33,9 +35,10 @@
         <input class="input" type="text" name="receipt_no" placeholder="Enter receipt no" required> <br>
         </div>
 
-        {% for i in range(credits[1]) %}
+
+        {% for i in range(credit[0][0]|length) %}
         <div class="receipt-section">
-          <H3>CREDIT {{i+1}}</H3>
+          <H3>CREDIT ACCOUNT {{i+1}}</H3>
           <label class="label" for="account_no">Account No: </label>
           <input class="input" type="text" name="account_no" placeholder="Enter account no" required> <br>
   
@@ -55,4 +58,13 @@
     <br><br>
 </div>
 </form>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 {% endblock content %} 

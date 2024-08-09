@@ -8,22 +8,23 @@
 {% block content %}
 <form action="/credits" method="POST">
 
-<!-- page wrapper -->
-<div class="cashbook">
-  <br>
-  <h3 class="slider-title one">no of credits</h3>
+  <!-- page wrapper -->
+  <div class="cashbook">
+    <br>
+    <h3 class="slider-title one">no of credits</h3>
     <!-- carousel -->
     <div class="receipt">
-      
-        <div class="receipt-section">
 
-        <label class="label" for="no_of_credits">no of credits: </label>
-        <input class="input" type="number" name="no_of_credits" placeholder="Enter number of credits" required> <br>
-        </div>
+      <div class="receipt-section">
+
+        <label class="label" for="no_of_credits">number of accounts to credit: </label>
+        <input class="input" type="number" name="no_of_credits" placeholder="Enter number of accounts to credit"
+          required> <br>
+      </div>
 
     </div>
     <input class="btn-big" type="submit" value="continue">
     <br><br>
-</div>
+  </div>
 </form>
-{% endblock content %} 
+{% endblock content %}

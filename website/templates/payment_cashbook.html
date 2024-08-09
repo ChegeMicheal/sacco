@@ -8,20 +8,21 @@
 {% block content %}
 <form action="/payment_cashbook" method="post">
 
-<!-- page wrapper -->
-<div class="cashbook">
-  <br>
-  <h3 class="slider-title one">PAYMENT CASHBOOK</h3>
+  <!-- page wrapper -->
+  <div class="cashbook">
+    <br>
+    <h3 class="slider-title one">PAYMENT CASHBOOK</h3>
     <!-- carousel -->
     <div class="receipt">
-      
-        <div class="receipt-section">
-          <h3>CREDIT</h3>
+
+      <div class="receipt-section">
+        <h3>CREDIT</h3>
         <label class="label" for="member_No">Member No: </label>
         <input class="input" type="text" name="member_no" placeholder="Enter Member number" required> <br>
 
         <label class="label" for="member_Name">Member Name: </label>
-        <input class="input" type="text" name="member_name" placeholder="Enter Member name" value="{{name}}" required><br>
+        <input class="input" type="text" name="member_name" placeholder="Enter Member name" value="{{name}}"
+          required><br>
 
         <label class="label" for="total_paid">Total paid: </label>
         <input class="input" type="integer" name="total_paid" placeholder="Enter Amount paid" required> <br>
@@ -31,27 +32,28 @@
 
         <label class="label" for="receipt_no">receipt no: </label>
         <input class="input" type="text" name="receipt_no" placeholder="Enter receipt no" required> <br>
-        </div>
+      </div>
 
-        <div class="receipt-section">
-          <H3>DEBIT</H3>
-          <label class="label" for="account_no">Account No: </label>
-          <input class="input" type="text" name="account_no" placeholder="Enter account no" required> <br>
-  
-          <label class="label" for="account_name">Account Name: </label>
-          <input class="input" type="text" name="account_name" placeholder="Enter account name" value="{{name}}" required><br>
-  
-          <label class="label" for="amount">Amount: </label>
-          <input class="input" type="integer" name="amount" placeholder="Enter Amount" required> <br>
-  
-          <label class="label" for="reason">Reason: </label>
-          <input class="input" type="text" name="reason" placeholder="Enter payment reason" required> <br>
-  
-          </div>
-        
+      <div class="receipt-section">
+        <H3>DEBIT</H3>
+        <label class="label" for="account_no">Account No: </label>
+        <input class="input" type="text" name="account_no" placeholder="Enter account no" required> <br>
+
+        <label class="label" for="account_name">Account Name: </label>
+        <input class="input" type="text" name="account_name" placeholder="Enter account name" value="{{name}}"
+          required><br>
+
+        <label class="label" for="amount">Amount: </label>
+        <input class="input" type="integer" name="amount" placeholder="Enter Amount" required> <br>
+
+        <label class="label" for="reason">Reason: </label>
+        <input class="input" type="text" name="reason" placeholder="Enter payment reason" required> <br>
+
+      </div>
+
     </div>
     <input class="btn-big" type="submit" value="ADD CONTRIBUTION">
     <br><br>
-</div>
+  </div>
 </form>
-{% endblock content %} 
+{% endblock content %}

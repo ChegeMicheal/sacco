@@ -13,19 +13,17 @@ class User(db.Model, UserMixin):
     #create string
     def __repr__(self):
         return '<Name %r>' % self.name
-    
 
-class Footer_message(db.Model):
+class Account(db.Model):
     id= db.Column(db.Integer, primary_key = True)
-    email = db.Column(db.String(150), nullable=False)
-    message = db.Column(db.String(10000), nullable=False)
-    visibility = db.Column(db.String(150))
+    account_name=db.Column(db.String(150), nullable=False)
+    account_number=db.Column(db.String(150), nullable=False)
+    debit=db.Column(db.Integer)
+    credit=db.Column(db.Integer)
     date_submitted = db.Column(db.DateTime, default=datetime.utcnow)
 
+    
 class Credit(db.Model):
     id= db.Column(db.Integer, primary_key = True)
-    credits=db.Column(db.Integer)
+    credits=db.Column(db.String(1000), nullable=False)
     date_submitted = db.Column(db.DateTime, default=datetime.utcnow)
-
-    
-

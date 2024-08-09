@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>add account</title>
+{% endblock title %}
+
+
+{% block content %}
+<form action="/add_account" method="POST">
+
+  <!-- page wrapper -->
+  <div class="cashbook">
+    <br>
+    <h3 class="slider-title one">Add Account</h3>
+    <!-- carousel -->
+    <div class="receipt">
+
+      <div class="receipt-section">
+
+        <label class="label" for="account_No">Account No: </label>
+        <input class="input" type="text" name="account_no" placeholder="Enter Account number" required> <br>
+
+        <label class="label" for="account_Name">Account Name: </label>
+        <input class="input" type="text" name="account_name" placeholder="Enter Account name" value="{{name}}" required><br>
+
+      </div>
+
+    </div>
+    <input class="btn-big" type="submit" value="ADD ACCOUNT">
+    <br><br>
+  </div>
+</form>
+{% endblock content %}
