@@ -63,3 +63,22 @@ document.addEventListener("DOMContentLoaded", () => {
     applyTheme(this.value);
   });
 });
+
+
+
+
+$(".toggleIcon").click(function(){
+   if($(this).attr("data-permission-value")=="true")
+{
+    $(this)
+        .attr("data-permission-value", "false")
+        .removeClass("greenIcon")
+        .addClass("redIcon"); 
+}else{
+    $(this)
+        .attr("data-permission-value", "true")
+        .removeClass("redIcon")
+        .addClass("greenIcon"); 
+}
+
+});
